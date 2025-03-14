@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindset Morning - Transforme sua vida com afirmações positivas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mindset Morning</h1>
+            <p class="tagline">Transforme sua vida com o poder das afirmações positivas</p>
+        </header>
+
+        <main>
+            <section class="goal-input-section">
+                <h2>Defina seu objetivo</h2>
+                <div class="api-key-container">
+                    <input type="text" id="api-key" placeholder="Insira sua chave API Groq">
+                    <button id="fetch-models-btn" class="secondary-btn">Buscar Modelos</button>
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltiptext">Você precisa de uma chave API Groq para gerar afirmações. Obtenha uma em api.groq.com</span>
+                    </div>
+                </div>
+                
+                <div id="model-selection-container" class="model-selection-container hidden">
+                    <label for="model-select">Selecione o modelo:</label>
+                    <select id="model-select" class="model-select">
+                        <option value="" disabled selected>Selecione um modelo</option>
+                        <!-- Os modelos serão carregados dinamicamente -->
+                    </select>
+                    <div class="model-info">
+                        <span id="model-info-text">Selecione um modelo para ver informações</span>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <textarea id="user-goal" placeholder="Descreva seu objetivo principal ou desafio que deseja superar..."></textarea>
+                    
+                    <div class="affirmation-options">
+                        <div class="affirmation-count-container">
+                            <label for="affirmation-count">Quantidade de afirmações:</label>
+                            <input type="number" id="affirmation-count" min="5" max="100" value="40">
+                        </div>
+                        
+                        <div class="techniques-container">
+                            <span class="techniques-label">Técnicas utilizadas:</span>
+                            <div class="techniques-badges">
+                                <span class="technique-badge">PNL</span>
+                                <span class="technique-badge">Psicologia Positiva</span>
+                                <span class="technique-badge">TCC</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="generate-btn" class="primary-btn" disabled>Gerar Afirmações</button>
+                </div>
+            </section>
+
+            <section class="affirmations-section hidden">
+                <h2 id="affirmations-title">Suas Afirmações Personalizadas</h2>
+                
+                <div class="reasoning-container">
+                    <h3>Raciocínio Utilizado</h3>
+                    <div id="reasoning-content" class="reasoning-content">
+                        <!-- O raciocínio será inserido aqui -->
+                    </div>
+                </div>
+                
+                <div class="timer-settings">
+                    <h3>Configure seu temporizador</h3>
+                    <div class="timer-inputs">
+                        <div class="timer-input-group">
+                            <label for="interval">Intervalo entre afirmações (segundos):</label>
+                            <input type="number" id="interval" min="5" value="30">
+                        </div>
+                        <div class="timer-input-group">
+                            <label for="start-time">Horário de início:</label>
+                            <input type="time" id="start-time">
+                        </div>
+                        <div class="timer-input-group">
+                            <label for="repeat-daily">Repetir diariamente:</label>
+                            <input type="checkbox" id="repeat-daily" checked>
+                        </div>
+                    </div>
+                    <button id="start-timer-btn" class="primary-btn">Iniciar Temporizador</button>
+                </div>
+                
+                <div id="affirmations-container" class="affirmations-grid">
+                    <!-- Affirmations will be generated here -->
+                </div>
+            </section>
+
+            <section class="active-affirmation-section hidden">
+                <div class="active-affirmation-container">
+                    <div class="timer-display">
+                        <div id="countdown">30</div>
+                        <div class="progress-ring-container">
+                            <svg class="progress-ring" width="120" height="120">
+                                <circle class="progress-ring-circle-bg" stroke="#ddd" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                                <circle class="progress-ring-circle" stroke="#4CAF50" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="current-affirmation" class="current-affirmation">
+                        <!-- Current affirmation will be displayed here -->
+                    </div>
+                    <div class="affirmation-controls">
+                        <button id="pause-btn" class="control-btn"><i class="fas fa-pause"></i></button>
+                        <button id="next-btn" class="control-btn"><i class="fas fa-forward"></i></button>
+                        <button id="stop-btn" class="control-btn"><i class="fas fa-stop"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Mindset Morning - Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <p id="notification-message"></p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
