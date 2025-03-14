@@ -1,0 +1,1210 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Main Content Styles */
+main {
+    padding: 30px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+/* Input Section Styles */
+.goal-input-section {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+/* Affirmation Options Styles */
+.affirmation-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.affirmation-count-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.affirmation-count-container label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+#affirmation-count {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.techniques-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.techniques-label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.techniques-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.technique-badge {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Reasoning Container Styles */
+.reasoning-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.reasoning-content {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.reasoning-content p {
+    margin-bottom: 10px;
+}
+
+.reasoning-content ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.reasoning-content strong {
+    color: #333;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.primary-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.primary-btn:disabled {
+    background: linear-gradient(135deg, #a5a5a5 0%, #7a7a7a 100%);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.secondary-btn {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-left: 10px;
+}
+
+.secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.api-key-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#api-key {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#api-key:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+/* Model Selection Styles */
+.model-selection-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.model-selection-container.hidden {
+    display: none;
+}
+
+.model-selection-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #555;
+}
+
+.model-select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.model-select:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.model-info {
+    background-color: #f5f7fa;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.tooltip {
+    margin-left: 10px;
+    position: relative;
+    display: inline-block;
+    color: #667eea;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Affirmations Section Styles */
+.affirmations-section {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+.timer-settings {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.timer-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.timer-input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-input-group label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #666;
+}
+
+.timer-input-group input[type="number"],
+.timer-input-group input[type="time"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.affirmations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.affirmation-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.affirmation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.affirmation-number {
+    font-size: 0.9rem;
+    color: #667eea;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.affirmation-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Active Affirmation Section Styles */
+.active-affirmation-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.active-affirmation-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.timer-display {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 30px;
+}
+
+#countdown {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #555;
+}
+
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.3s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 0;
+}
+
+.current-affirmation {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #555;
+    font-weight: 500;
+}
+
+.affirmation-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.control-btn {
+    background-color: #f5f5f5;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.control-btn:hover {
+    background-color: #e0e0e0;
+}
+
+#pause-btn {
+    background-color: #ffd166;
+    color: white;
+}
+
+#next-btn {
+    background-color: #118ab2;
+    color: white;
+}
+
+#stop-btn {
+    background-color: #ef476f;
+    color: white;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #333;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+.notification.hidden {
+    transform: translateY(30px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+/* Affirmation Style Container Styles */
+.affirmation-style-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    position: relative;
+}
+
+.affirmation-style-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #555;
+    width: 100%;
+}
+
+.affirmation-style-select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+    margin-right: 15px;
+}
+
+.affirmation-style-select:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.style-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.style-info-icon {
+    color: #667eea;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px;
+}
+
+.style-info-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    z-index: 10;
+    margin-top: 10px;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.style-info-content.hidden {
+    display: none;
+}
+
+.style-info-content h4 {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.style-description {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.style-description strong {
+    color: #444;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        padding: 30px 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .goal-input-section,
+    .affirmations-section {
+        padding: 20px;
+    }
+    
+    .timer-inputs {
+        grid-template-columns: 1fr;
+    }
+    
+    .active-affirmation-container {
+        padding: 30px 20px;
+    }
+    
+    .current-affirmation {
+        font-size: 1.5rem;
+    }
+    
+    .api-key-container {
+        flex-direction: column;
+    }
+    
+    .secondary-btn {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .affirmation-options {
+        flex-direction: column;
+    }
+    
+    .affirmation-style-select {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .style-info {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .style-info-content {
+        width: 100%;
+        right: 0;
+    }
+}
+
+/* Affirmation Card Styles Based on Length */
+.affirmation-card.short-affirmation {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    border-left: 5px solid #ff9a76;
+}
+
+.affirmation-card.medium-affirmation {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    border-left: 5px solid #5cb85c;
+}
+
+.affirmation-card.long-affirmation {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    border-left: 5px solid #428bca;
+}
+
+.affirmation-card.short-affirmation .affirmation-number {
+    color: #d35400;
+}
+
+.affirmation-card.medium-affirmation .affirmation-number {
+    color: #27ae60;
+}
+
+.affirmation-card.long-affirmation .affirmation-number {
+    color: #2980b9;
+}
+
+.affirmation-card.short-affirmation .affirmation-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.affirmation-card.medium-affirmation .affirmation-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.affirmation-card.long-affirmation .affirmation-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Block Management Styles */
+.block-management-container,
+.advanced-settings-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.block-intro {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.block-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.block-actions .secondary-btn {
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.blocks-container {
+    min-height: 100px;
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.empty-blocks-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    padding: 20px;
+    text-align: center;
+}
+
+.empty-blocks-message i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    opacity: 0.5;
+}
+
+.block-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.block-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.block-item.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.block-info {
+    flex: 1;
+}
+
+.block-name {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.block-description {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.block-count {
+    font-size: 0.8rem;
+    color: #667eea;
+    margin-top: 5px;
+}
+
+.block-actions-menu {
+    display: flex;
+    gap: 10px;
+}
+
+.block-action-btn {
+    background: none;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.block-action-btn:hover {
+    background-color: #f0f0f0;
+    color: #555;
+}
+
+.block-action-btn.edit-btn:hover {
+    color: #4facfe;
+}
+
+.block-action-btn.delete-btn:hover {
+    color: #ef476f;
+}
+
+/* Advanced Settings Styles */
+.settings-section {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.settings-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.settings-section h4 {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.weekday-selector {
+    margin-bottom: 20px;
+}
+
+.weekday-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #666;
+}
+
+.weekday-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.weekday-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.weekday-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.weekday-btn.active {
+    background-color: #667eea;
+    border-color: #667eea;
+    color: white;
+}
+
+.time-slots-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.time-slot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.time-slot-header span {
+    font-weight: 500;
+    color: #555;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+    background-color: rgba(102, 126, 234, 0.1);
+}
+
+.time-slots-list {
+    min-height: 50px;
+}
+
+.time-slot-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.time-slot-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.time-slot-time {
+    font-weight: 600;
+    color: #555;
+}
+
+.time-slot-block {
+    color: #667eea;
+    font-size: 0.9rem;
+}
+
+.time-slot-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.display-mode-selector {
+    margin-bottom: 15px;
+}
+
+.radio-option {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.interval-settings {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.interval-settings label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #666;
+}
+
+.interval-settings input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    max-width: 200px;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #555;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #555;
+}
+
+.modal-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="time"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.block-affirmations-list {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.affirmation-checkbox-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: flex-start;
+}
+
+.affirmation-checkbox-item:last-child {
+    border-bottom: none;
+}
+
+.affirmation-checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 3px;
+}
+
+.affirmation-checkbox-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.block-affirmations-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.text-btn:hover {
+    color: #4a5cc4;
+    text-decoration: underline;
+}
+
+/* Responsive Styles for New Elements */
+@media (max-width: 768px) {
+    .block-actions {
+        flex-direction: column;
+    }
+    
+    .weekday-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .time-slot-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .time-slot-info {
+        margin-bottom: 10px;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+} 

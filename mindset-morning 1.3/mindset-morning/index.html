@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindset Morning - Transforme sua vida com afirmações positivas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mindset Morning</h1>
+            <p class="tagline">Transforme sua vida com o poder das afirmações positivas</p>
+        </header>
+
+        <main>
+            <section class="goal-input-section">
+                <h2>Defina seu objetivo</h2>
+                <div class="api-key-container">
+                    <input type="text" id="api-key" placeholder="Insira sua chave API Groq">
+                    <button id="fetch-models-btn" class="secondary-btn">Buscar Modelos</button>
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltiptext">Você precisa de uma chave API Groq para gerar afirmações. Obtenha uma em api.groq.com</span>
+                    </div>
+                </div>
+                
+                <div id="model-selection-container" class="model-selection-container hidden">
+                    <label for="model-select">Selecione o modelo:</label>
+                    <select id="model-select" class="model-select">
+                        <option value="" disabled selected>Selecione um modelo</option>
+                        <!-- Os modelos serão carregados dinamicamente -->
+                    </select>
+                    <div class="model-info">
+                        <span id="model-info-text">Selecione um modelo para ver informações</span>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <textarea id="user-goal" placeholder="Descreva seu objetivo principal ou desafio que deseja superar..."></textarea>
+                    
+                    <div class="affirmation-options">
+                        <div class="affirmation-count-container">
+                            <label for="affirmation-count">Quantidade de afirmações:</label>
+                            <input type="number" id="affirmation-count" min="5" max="100" value="40">
+                        </div>
+                        
+                        <div class="techniques-container">
+                            <span class="techniques-label">Técnicas utilizadas:</span>
+                            <div class="techniques-badges">
+                                <span class="technique-badge">PNL</span>
+                                <span class="technique-badge">Psicologia Positiva</span>
+                                <span class="technique-badge">TCC</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="affirmation-style-container">
+                        <label for="affirmation-style">Estilo das afirmações:</label>
+                        <select id="affirmation-style" class="affirmation-style-select">
+                            <option value="mixed" selected>Misto (Variado)</option>
+                            <option value="short">Frases Curtas (até 10 palavras)</option>
+                            <option value="medium">Frases Médias (11-20 palavras)</option>
+                            <option value="long">Frases Longas (mais de 20 palavras)</option>
+                        </select>
+                        <div class="style-info">
+                            <div class="style-info-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="style-info-content hidden">
+                                <h4>Estilos de Afirmações</h4>
+                                <div class="style-description">
+                                    <strong>Frases Curtas:</strong> Diretas e impactantes, até 10 palavras. Ideais para memorização rápida.
+                                </div>
+                                <div class="style-description">
+                                    <strong>Frases Médias:</strong> Balanceiam detalhe e concisão, 11-20 palavras. Boas para contexto adicional.
+                                </div>
+                                <div class="style-description">
+                                    <strong>Frases Longas:</strong> Elaboradas e detalhadas, mais de 20 palavras. Melhores para visualização profunda.
+                                </div>
+                                <div class="style-description">
+                                    <strong>Misto:</strong> Combinação de todos os estilos para maior variedade e eficácia.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="generate-btn" class="primary-btn" disabled>Gerar Afirmações</button>
+                </div>
+            </section>
+
+            <section class="affirmations-section hidden">
+                <h2 id="affirmations-title">Suas Afirmações Personalizadas</h2>
+                
+                <div class="reasoning-container">
+                    <h3>Raciocínio Utilizado</h3>
+                    <div id="reasoning-content" class="reasoning-content">
+                        <!-- O raciocínio será inserido aqui -->
+                    </div>
+                </div>
+                
+                <div class="block-management-container">
+                    <h3>Gerenciamento de Blocos</h3>
+                    <p class="block-intro">Organize suas afirmações em blocos temáticos para melhor gerenciamento e exibição.</p>
+                    
+                    <div class="block-actions">
+                        <button id="create-block-btn" class="secondary-btn">
+                            <i class="fas fa-plus-circle"></i> Criar Novo Bloco
+                        </button>
+                        <button id="save-blocks-btn" class="secondary-btn">
+                            <i class="fas fa-save"></i> Salvar Configurações
+                        </button>
+                    </div>
+                    
+                    <div id="blocks-container" class="blocks-container">
+                        <!-- Os blocos serão inseridos aqui dinamicamente -->
+                        <div class="empty-blocks-message">
+                            <i class="fas fa-layer-group"></i>
+                            <p>Você ainda não criou nenhum bloco. Clique em "Criar Novo Bloco" para começar.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="advanced-settings-container">
+                    <h3>Configurações Avançadas de Exibição</h3>
+                    
+                    <div class="settings-section">
+                        <h4>Programação de Exibição</h4>
+                        <div class="weekday-selector">
+                            <span class="weekday-label">Dias da semana:</span>
+                            <div class="weekday-buttons">
+                                <button class="weekday-btn" data-day="0">D</button>
+                                <button class="weekday-btn" data-day="1">S</button>
+                                <button class="weekday-btn" data-day="2">T</button>
+                                <button class="weekday-btn" data-day="3">Q</button>
+                                <button class="weekday-btn" data-day="4">Q</button>
+                                <button class="weekday-btn" data-day="5">S</button>
+                                <button class="weekday-btn" data-day="6">S</button>
+                            </div>
+                        </div>
+                        
+                        <div class="time-slots-container">
+                            <div class="time-slot-header">
+                                <span>Horários de Exibição</span>
+                                <button id="add-time-slot-btn" class="icon-btn">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div id="time-slots-list" class="time-slots-list">
+                                <!-- Os horários serão inseridos aqui dinamicamente -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h4>Modo de Exibição</h4>
+                        <div class="display-mode-selector">
+                            <div class="radio-option">
+                                <input type="radio" id="continuous-mode" name="display-mode" value="continuous" checked>
+                                <label for="continuous-mode">Contínuo (sem intervalos)</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="interval-mode" name="display-mode" value="interval">
+                                <label for="interval-mode">Intervalado</label>
+                            </div>
+                            <div id="interval-settings" class="interval-settings hidden">
+                                <label for="interval-time">Intervalo entre afirmações (segundos):</label>
+                                <input type="number" id="interval-time" min="5" value="30">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timer-settings">
+                    <h3>Configure seu temporizador</h3>
+                    <div class="timer-inputs">
+                        <div class="timer-input-group">
+                            <label for="interval">Intervalo entre afirmações (segundos):</label>
+                            <input type="number" id="interval" min="5" value="30">
+                        </div>
+                        <div class="timer-input-group">
+                            <label for="start-time">Horário de início:</label>
+                            <input type="time" id="start-time">
+                        </div>
+                        <div class="timer-input-group">
+                            <label for="repeat-daily">Repetir diariamente:</label>
+                            <input type="checkbox" id="repeat-daily" checked>
+                        </div>
+                    </div>
+                    <button id="start-timer-btn" class="primary-btn">Iniciar Temporizador</button>
+                </div>
+                
+                <div id="affirmations-container" class="affirmations-grid">
+                    <!-- Affirmations will be generated here -->
+                </div>
+            </section>
+
+            <section class="active-affirmation-section hidden">
+                <div class="active-affirmation-container">
+                    <div class="timer-display">
+                        <div id="countdown">30</div>
+                        <div class="progress-ring-container">
+                            <svg class="progress-ring" width="120" height="120">
+                                <circle class="progress-ring-circle-bg" stroke="#ddd" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                                <circle class="progress-ring-circle" stroke="#4CAF50" stroke-width="8" fill="transparent" r="50" cx="60" cy="60"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="current-affirmation" class="current-affirmation">
+                        <!-- Current affirmation will be displayed here -->
+                    </div>
+                    <div class="affirmation-controls">
+                        <button id="pause-btn" class="control-btn"><i class="fas fa-pause"></i></button>
+                        <button id="next-btn" class="control-btn"><i class="fas fa-forward"></i></button>
+                        <button id="stop-btn" class="control-btn"><i class="fas fa-stop"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Mindset Morning - Todos os direitos reservados</p>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <p id="notification-message"></p>
+    </div>
+    
+    <!-- Modal para criação/edição de blocos -->
+    <div id="block-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="block-modal-title">Criar Novo Bloco</h3>
+                <button id="close-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="block-name">Nome do Bloco:</label>
+                    <input type="text" id="block-name" placeholder="Ex: Motivação, Saúde, Foco...">
+                </div>
+                <div class="form-group">
+                    <label for="block-description">Descrição (opcional):</label>
+                    <textarea id="block-description" placeholder="Descreva o propósito deste bloco..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Afirmações no Bloco:</label>
+                    <div id="block-affirmations-list" class="block-affirmations-list">
+                        <!-- As afirmações do bloco serão inseridas aqui -->
+                    </div>
+                    <div class="block-affirmations-actions">
+                        <button id="add-all-affirmations-btn" class="text-btn">Adicionar todas as afirmações</button>
+                        <button id="clear-block-affirmations-btn" class="text-btn">Limpar seleção</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-block-btn" class="primary-btn">Salvar Bloco</button>
+                <button id="cancel-block-btn" class="secondary-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal para adicionar horário -->
+    <div id="time-slot-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Adicionar Horário de Exibição</h3>
+                <button id="close-time-modal-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="time-slot-time">Horário:</label>
+                    <input type="time" id="time-slot-time">
+                </div>
+                <div class="form-group">
+                    <label for="time-slot-block">Bloco de Afirmações:</label>
+                    <select id="time-slot-block">
+                        <option value="" disabled selected>Selecione um bloco</option>
+                        <!-- Os blocos serão carregados dinamicamente -->
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-time-slot-btn" class="primary-btn">Adicionar Horário</button>
+                <button id="cancel-time-slot-btn" class="secondary-btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
